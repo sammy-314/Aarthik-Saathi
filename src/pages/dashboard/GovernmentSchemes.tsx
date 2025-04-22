@@ -102,8 +102,8 @@ const SchemeCard = ({ scheme }: { scheme: Scheme }) => {
 const GovernmentSchemes = () => {
   const { profile } = useProfile();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedMinistry, setSelectedMinistry] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedMinistry, setSelectedMinistry] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   
   // Extract unique ministries for filter
   const ministries = useMemo(() => {
@@ -170,11 +170,11 @@ const GovernmentSchemes = () => {
         scheme.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     
-    if (selectedMinistry) {
+    if (selectedMinistry && selectedMinistry !== 'all') {
       result = result.filter(scheme => scheme.ministry === selectedMinistry);
     }
     
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== 'all') {
       result = result.filter(scheme => 
         scheme.eligibility.categories?.includes(selectedCategory)
       );
@@ -217,7 +217,7 @@ const GovernmentSchemes = () => {
                   <SelectValue placeholder="Filter by Ministry" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Ministries</SelectItem>
+                  <SelectItem value="all">All Ministries</SelectItem>
                   {ministries.map((ministry) => (
                     <SelectItem key={ministry} value={ministry}>
                       {ministry}
@@ -231,7 +231,7 @@ const GovernmentSchemes = () => {
                   <SelectValue placeholder="Filter by Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all">All Categories</SelectItem>
                   <SelectItem value="General">General</SelectItem>
                   <SelectItem value="OBC">OBC</SelectItem>
                   <SelectItem value="SC">SC</SelectItem>
@@ -296,8 +296,8 @@ const GovernmentSchemes = () => {
                     className="mt-4"
                     onClick={() => {
                       setSearchQuery('');
-                      setSelectedMinistry('');
-                      setSelectedCategory('');
+                      setSelectedMinistry('all');
+                      setSelectedCategory('all');
                     }}
                   >
                     Clear Filters

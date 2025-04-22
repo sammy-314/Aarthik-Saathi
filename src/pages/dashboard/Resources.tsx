@@ -100,8 +100,8 @@ const ResourceCard = ({ resource }: { resource: Resource }) => {
 
 const Resources = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedType, setSelectedType] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedType, setSelectedType] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   
   // Extract unique values for filters
   const resourceTypes = useMemo(() => {
@@ -123,11 +123,11 @@ const Resources = () => {
         resource.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     
-    if (selectedType) {
+    if (selectedType && selectedType !== 'all') {
       result = result.filter(resource => resource.type === selectedType);
     }
     
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== 'all') {
       result = result.filter(resource => resource.category === selectedCategory);
     }
     
@@ -179,7 +179,7 @@ const Resources = () => {
                   <SelectValue placeholder="Resource Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Types</SelectItem>
+                  <SelectItem value="all">All Types</SelectItem>
                   {resourceTypes.map((type) => (
                     <SelectItem key={type} value={type}>
                       {type}
@@ -193,7 +193,7 @@ const Resources = () => {
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all">All Categories</SelectItem>
                   {categories.map((category) => (
                     <SelectItem key={category} value={category}>
                       {category}
@@ -220,8 +220,8 @@ const Resources = () => {
                     className="mt-4"
                     onClick={() => {
                       setSearchQuery('');
-                      setSelectedType('');
-                      setSelectedCategory('');
+                      setSelectedType('all');
+                      setSelectedCategory('all');
                     }}
                   >
                     Clear Filters
