@@ -1,4 +1,3 @@
-
 export type GreenInvestment = {
   id: string;
   name: string;
@@ -250,11 +249,11 @@ export const greenInvestments: GreenInvestment[] = [
     minimumInvestment: 5000,
     riskLevel: "Medium",
     sustainability: {
-      environmentalImpact: "Channels capital to clean energy transition",
-      sdgGoals: ["Clean Energy", "Climate Action", "Industry Innovation"]
+      environmentalImpact: "Supports entire clean energy ecosystem",
+      sdgGoals: ["Clean Energy", "Industry Innovation", "Climate Action"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Solar Energy", "Wind Energy", "Energy Storage", "Smart Grid"]
+    sectorFocus: ["Renewable Energy", "Clean Technology", "Energy Storage"]
   },
   {
     id: "sterling-green-bond",
@@ -316,5 +315,109 @@ export const greenInvestments: GreenInvestment[] = [
     investmentPeriod: "5-7 years",
     sectorFocus: ["Electric Vehicles", "Clean Transportation"]
   },
-  // 5 more would be added to reach 25
+  {
+    id: "green-waste-management-bond",
+    name: "Municipal Green Waste Management Bond",
+    type: "Bond",
+    description: "Municipal bonds funding waste-to-energy projects and modern waste management facilities in major Indian cities. These projects aim to address urban waste challenges while generating clean energy.",
+    expectedReturns: "7.5-8.5% (Annual)",
+    minimumInvestment: 10000,
+    riskLevel: "Low",
+    sustainability: {
+      environmentalImpact: "Reduces landfill waste and generates clean energy from waste",
+      sdgGoals: ["Sustainable Cities", "Responsible Consumption", "Clean Energy"]
+    },
+    investmentPeriod: "5-7 years",
+    sectorFocus: ["Waste Management", "Waste-to-Energy", "Urban Infrastructure"]
+  },
+  {
+    id: "ev-infrastructure-fund",
+    name: "Electric Vehicle Infrastructure Growth Fund",
+    type: "Infrastructure",
+    description: "A specialized fund investing in electric vehicle charging infrastructure and related technologies across major Indian cities. The fund aims to support India's EV adoption goals.",
+    expectedReturns: "13-16% (IRR)",
+    minimumInvestment: 100000,
+    riskLevel: "High",
+    sustainability: {
+      environmentalImpact: "Enables transition to electric mobility and reduces transport emissions",
+      sdgGoals: ["Sustainable Cities", "Climate Action", "Innovation"]
+    },
+    investmentPeriod: "7-10 years",
+    sectorFocus: ["Electric Vehicles", "Charging Infrastructure", "Green Transportation"]
+  },
+  {
+    id: "green-building-reit",
+    name: "Sustainable Real Estate Investment Trust",
+    type: "Infrastructure",
+    description: "A REIT focused on green-certified commercial buildings and sustainable housing projects. Properties feature energy efficiency, water conservation, and renewable energy integration.",
+    expectedReturns: "8-10% (Annual)",
+    minimumInvestment: 50000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Promotes sustainable construction and reduces building emissions",
+      sdgGoals: ["Sustainable Cities", "Climate Action", "Responsible Consumption"]
+    },
+    investmentPeriod: "3-5 years",
+    sectorFocus: ["Green Buildings", "Sustainable Real Estate", "Energy Efficiency"]
+  },
+  {
+    id: "water-conservation-project",
+    name: "Smart Water Management Project",
+    type: "Project",
+    description: "Investment in advanced water conservation and management projects using IoT and AI technologies. Includes water recycling, smart metering, and leak detection systems.",
+    expectedReturns: "9-11% (IRR)",
+    minimumInvestment: 75000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Conserves water resources and reduces water waste",
+      sdgGoals: ["Clean Water", "Sustainable Cities", "Climate Action"]
+    },
+    investmentPeriod: "5-7 years",
+    sectorFocus: ["Water Management", "Smart Infrastructure", "Conservation Technology"]
+  },
+  {
+    id: "agritech-sustainability-fund",
+    name: "Agricultural Technology and Sustainability Fund",
+    type: "Mutual Fund",
+    description: "A fund investing in companies developing sustainable agricultural technologies, including precision farming, drought-resistant crops, and organic farming solutions.",
+    expectedReturns: "11-14% (CAGR)",
+    minimumInvestment: 5000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Promotes sustainable farming practices and food security",
+      sdgGoals: ["Zero Hunger", "Climate Action", "Responsible Production"]
+    },
+    investmentPeriod: "5+ years",
+    sectorFocus: ["Agricultural Technology", "Sustainable Farming", "Food Security"]
+  },
+  {
+    id: "green-hydrogen-equity",
+    name: "Green Hydrogen Development Company",
+    type: "Equity",
+    description: "Investment in a company focused on developing green hydrogen production facilities and infrastructure. The company aims to make hydrogen a viable clean energy alternative.",
+    expectedReturns: "Market-linked (Potential for 15-20%)",
+    minimumInvestment: 10000,
+    riskLevel: "High",
+    sustainability: {
+      environmentalImpact: "Develops zero-emission fuel alternatives",
+      sdgGoals: ["Clean Energy", "Industry Innovation", "Climate Action"]
+    },
+    investmentPeriod: "7+ years",
+    sectorFocus: ["Green Hydrogen", "Clean Energy", "Industrial Decarbonization"]
+  },
+  {
+    id: "circular-economy-fund",
+    name: "Circular Economy Innovation Fund",
+    type: "Mutual Fund",
+    description: "A specialized fund investing in companies implementing circular economy principles, including recycling technologies, remanufacturing, and sustainable packaging solutions.",
+    expectedReturns: "10-13% (CAGR)",
+    minimumInvestment: 5000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Reduces waste and promotes resource efficiency",
+      sdgGoals: ["Responsible Consumption", "Sustainable Production", "Climate Action"]
+    },
+    investmentPeriod: "5+ years",
+    sectorFocus: ["Circular Economy", "Recycling Technology", "Sustainable Manufacturing"]
+  }
 ];
