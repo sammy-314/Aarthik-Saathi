@@ -1,3 +1,4 @@
+
 export type Scheme = {
   id: string;
   name: string;
@@ -659,4 +660,170 @@ export const governmentSchemes: Scheme[] = [
     benefits: "Prevention and control of vector borne diseases.",
     applicationProcess: "Contact local health department.",
     requiredDocuments: ["Aadhaar Card"],
-    website: "https://nvbdcp.gov.in/",
+    website: "https://nvbdcp.gov.in/"
+  },
+  {
+    id: "jan-shikshan-sansthan",
+    name: "Jan Shikshan Sansthan (JSS)",
+    ministry: "Ministry of Skill Development and Entrepreneurship",
+    description: "Vocational training program for non-literate, neo-literates, and school dropouts",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 200000]
+    },
+    benefits: "Vocational training and skill development.",
+    applicationProcess: "Contact local JSS center.",
+    requiredDocuments: ["Aadhaar Card", "Income Certificate"],
+    website: "https://jss.gov.in/"
+  },
+  {
+    id: "national-rural-drinking-water-programme",
+    name: "National Rural Drinking Water Programme (NRDWP)",
+    ministry: "Ministry of Jal Shakti",
+    description: "Provides safe drinking water to rural areas",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"]
+    },
+    benefits: "Access to safe drinking water.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card"],
+    website: "https://jaljeevanmission.gov.in/"
+  },
+  {
+    id: "national-child-labour-project",
+    name: "National Child Labour Project (NCLP)",
+    ministry: "Ministry of Labour and Employment",
+    description: "Rehabilitation of child laborers",
+    eligibility: {
+      maxAge: 14
+    },
+    benefits: "Education and vocational training for former child laborers.",
+    applicationProcess: "Through district administration.",
+    requiredDocuments: ["Birth Certificate", "Aadhaar Card"],
+    website: "https://labour.gov.in/"
+  },
+  {
+    id: "national-food-for-work-programme",
+    name: "National Food for Work Programme (NFWP)",
+    ministry: "Ministry of Rural Development",
+    description: "Employment generation and food security",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Employment and food grains.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "national-literacy-mission",
+    name: "National Literacy Mission (NLM)",
+    ministry: "Ministry of Education",
+    description: "Eradication of illiteracy",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"]
+    },
+    benefits: "Basic literacy and education.",
+    applicationProcess: "Through local centers.",
+    requiredDocuments: ["Aadhaar Card"],
+    website: "https://nlm.gov.in/"
+  },
+  {
+    id: "sampoorna-grameen-rozgar-yojana",
+    name: "Sampoorna Grameen Rozgar Yojana (SGRY)",
+    ministry: "Ministry of Rural Development",
+    description: "Rural employment and food security",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Employment and food grains.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "swarnjayanti-gram-swarozgar-yojana",
+    name: "Swarnjayanti Gram Swarozgar Yojana (SGSY)",
+    ministry: "Ministry of Rural Development",
+    description: "Self-employment for rural poor",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Self-employment opportunities.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "integrated-rural-development-programme",
+    name: "Integrated Rural Development Programme (IRDP)",
+    ministry: "Ministry of Rural Development",
+    description: "Poverty alleviation in rural areas",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Financial assistance for income-generating assets.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "jawahar-rozgar-yojana",
+    name: "Jawahar Rozgar Yojana (JRY)",
+    ministry: "Ministry of Rural Development",
+    description: "Employment generation in rural areas",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Employment opportunities.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "employment-assurance-scheme",
+    name: "Employment Assurance Scheme (EAS)",
+    ministry: "Ministry of Rural Development",
+    description: "Employment generation in rural areas",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Employment opportunities during the lean agricultural season.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://rural.nic.in/"
+  },
+  {
+    id: "pradhan-mantri-gram-sadak-yojana",
+    name: "Pradhan Mantri Gram Sadak Yojana (PMGSY)",
+    ministry: "Ministry of Rural Development",
+    description: "Rural road connectivity",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"]
+    },
+    benefits: "All-weather road connectivity to unconnected habitations.",
+    applicationProcess: "Through local government.",
+    requiredDocuments: ["Village ID"],
+    website: "https://pmgsy.nic.in/"
+  },
+  {
+    id: "swarna-jayanti-shahari-rozgar-yojana",
+    name: "Swarna Jayanti Shahari Rozgar Yojana (SJSRY)",
+    ministry: "Ministry of Housing and Urban Affairs",
+    description: "Urban employment and poverty alleviation",
+    eligibility: {
+      categories: ["General", "OBC", "SC", "ST"],
+      incomeRange: [0, 150000]
+    },
+    benefits: "Employment opportunities and skill development.",
+    applicationProcess: "Through urban local bodies.",
+    requiredDocuments: ["Aadhaar Card", "BPL Card"],
+    website: "https://mohua.gov.in/"
+  }
+];

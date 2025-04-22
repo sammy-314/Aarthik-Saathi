@@ -1,3 +1,4 @@
+
 export type BudgetProvision = {
   id: string;
   title: string;
@@ -748,4 +749,40 @@ export const budgetProvisions: BudgetProvision[] = [
     id: "market-access-initiative",
     title: "Market Access Initiative (MAI)",
     sector: "Commerce",
-    description
+    description: "Supporting the development of export marketing.",
+    impact: "positive",
+    applicableTo: { occupation: ["Business Owner"], incomeRange: [0, null] }
+  },
+  {
+    id: "niryat-bandhu-scheme",
+    title: "Niryat Bandhu Scheme",
+    sector: "Commerce",
+    description: "Mentoring potential exporters.",
+    impact: "positive",
+    applicableTo: { occupation: ["Business Owner"], incomeRange: [0, null] }
+  },
+  {
+    id: "pradhan-mantri-rojgar-protsahan-yojana",
+    title: "Pradhan Mantri Rojgar Protsahan Yojana (PMRPY)",
+    sector: "Employment",
+    description: "Incentivizing employers for generation of new employment.",
+    impact: "positive",
+    applicableTo: { occupation: ["Business Owner"], incomeRange: [0, null] }
+  },
+  {
+    id: "pradhan-mantri-gram-sinchai-yojana",
+    title: "Pradhan Mantri Gram Sinchai Yojana (PMGSY)",
+    sector: "Infrastructure",
+    description: "Expanding cultivated area with assured irrigation.",
+    impact: "positive",
+    applicableTo: { occupation: ["Farmer"], incomeRange: [0, null] }
+  },
+  {
+    id: "make-in-india",
+    title: "Make in India",
+    sector: "Industry",
+    description: "Encouraging companies to manufacture their products in India.",
+    impact: "positive",
+    applicableTo: { occupation: ["Business Owner"], incomeRange: [0, null] }
+  }
+];
