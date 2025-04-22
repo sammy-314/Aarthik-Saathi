@@ -1,5 +1,4 @@
-
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -63,6 +62,7 @@ const Budget = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSector, setSelectedSector] = useState<string>('');
   const [selectedImpact, setSelectedImpact] = useState<string>('');
+  const [selectedTab, setSelectedTab] = useState<'relevant' | 'all'>('relevant');
   
   // Extract unique sectors for filter
   const sectors = useMemo(() => {
@@ -120,8 +120,11 @@ const Budget = () => {
   
   // Filter provisions based on search and filters
   const filteredProvisions = useMemo(() => {
-    let result = searchQuery.trim() === '' ? budgetProvisions : 
-      budgetProvisions.filter(provision => 
+    // Use the appropriate base provisions based on the active tab
+    const baseProvisions = selectedTab === 'relevant' ? relevantProvisions : budgetProvisions;
+    
+    let result = searchQuery.trim() === '' ? baseProvisions : 
+      baseProvisions.filter(provision => 
         provision.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         provision.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -135,7 +138,14 @@ const Budget = () => {
     }
     
     return result;
-  }, [searchQuery, selectedSector, selectedImpact]);
+  }, [searchQuery, selectedSector, selectedImpact, selectedTab, relevantProvisions]);
+  
+  // Reset filters when tab changes
+  useEffect(() => {
+    setSearchQuery('');
+    setSelectedSector('');
+    setSelectedImpact('');
+  }, [selectedTab]);
   
   // Count provisions by impact
   const impactCounts = useMemo(() => {
@@ -201,7 +211,7 @@ const Budget = () => {
           </div>
         )}
         
-        <Tabs defaultValue="relevant" className="w-full">
+        <Tabs defaultValue="relevant" className="w-full" onValueChange={(value) => setSelectedTab(value as 'relevant' | 'all')}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <TabsList className="mb-0">
               <TabsTrigger value="relevant">Relevant to You</TabsTrigger>
@@ -251,8 +261,8 @@ const Budget = () => {
           <TabsContent value="relevant" className="m-0">
             {profile ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relevantProvisions.length > 0 ? (
-                  relevantProvisions.map((provision) => (
+                {filteredProvisions.length > 0 ? (
+                  filteredProvisions.map((provision) => (
                     <BudgetProvisionCard key={provision.id} provision={provision} />
                   ))
                 ) : (

@@ -9,9 +9,9 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-accent">
       {/* Header */}
-      <header className="container mx-auto py-6 px-4 flex justify-between items-center">
+      <header className="container mx-auto py-6 px-0 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-primary">Aarthik Saathi</span>
+          <span className="text-4xl font-bold text-primary">Aarthik Saathi</span>
         </div>
         <Button variant="outline" onClick={() => navigate('/auth')}>
           Sign In
@@ -20,7 +20,7 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 flex flex-col items-center text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
+        <h1 className="text-5xl md:text-5xl font-bold mb-6 text-primary">
           Your Financial Companion
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mb-12 text-foreground/80">

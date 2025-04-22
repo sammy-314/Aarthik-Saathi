@@ -1,5 +1,4 @@
-
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -49,7 +48,7 @@ const SchemeCard = ({ scheme }: { scheme: Scheme }) => {
         <CardDescription>{scheme.ministry}</CardDescription>
       </CardHeader>
       <CardContent className="pt-0 flex-grow flex flex-col">
-        <p className="text-sm mb-4 flex-grow">{scheme.description}</p>
+        <div className="text-sm mb-4 flex-grow">{scheme.description}</div>
         <div className="mt-auto">
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge variant="outline" className="bg-accent text-secondary">
@@ -104,12 +103,7 @@ const GovernmentSchemes = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMinistry, setSelectedMinistry] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  
-  // Extract unique ministries for filter
-  const ministries = useMemo(() => {
-    const ministrySet = new Set(governmentSchemes.map(scheme => scheme.ministry));
-    return Array.from(ministrySet);
-  }, []);
+  const [selectedTab, setSelectedTab] = useState<'eligible' | 'all'>('eligible');
   
   // Filter schemes based on profile
   const eligibleSchemes = useMemo(() => {
@@ -164,25 +158,60 @@ const GovernmentSchemes = () => {
   
   // Filter schemes based on search and filters
   const filteredSchemes = useMemo(() => {
-    let result = searchQuery.trim() === '' ? governmentSchemes : 
-      governmentSchemes.filter(scheme => 
-        scheme.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        scheme.description.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    
-    if (selectedMinistry && selectedMinistry !== 'all') {
-      result = result.filter(scheme => scheme.ministry === selectedMinistry);
-    }
-    
-    if (selectedCategory && selectedCategory !== 'all') {
-      result = result.filter(scheme => 
-        scheme.eligibility.categories?.includes(selectedCategory)
+    // Start with all schemes or eligible schemes based on tab
+    let schemes = selectedTab === 'eligible' ? eligibleSchemes : governmentSchemes;
+
+    // Apply search filter if there's a search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      schemes = schemes.filter(scheme => 
+        scheme.name.toLowerCase().includes(query) ||
+        scheme.description.toLowerCase().includes(query) ||
+        scheme.ministry.toLowerCase().includes(query)
       );
     }
-    
-    return result;
-  }, [searchQuery, selectedMinistry, selectedCategory]);
-  
+
+    // Apply ministry filter
+    if (selectedMinistry !== 'all') {
+      schemes = schemes.filter(scheme => scheme.ministry === selectedMinistry);
+    }
+
+    // Apply category filter
+    if (selectedCategory !== 'all') {
+      schemes = schemes.filter(scheme => {
+        const categories = scheme.eligibility.categories;
+        return categories && categories.includes(selectedCategory);
+      });
+    }
+
+    return schemes;
+  }, [searchQuery, selectedMinistry, selectedCategory, selectedTab, eligibleSchemes]);
+
+  // Extract unique categories for filter
+  const categories = useMemo(() => {
+    const categorySet = new Set<string>();
+    governmentSchemes.forEach(scheme => {
+      const schemeCategories = scheme.eligibility.categories;
+      if (schemeCategories && Array.isArray(schemeCategories)) {
+        schemeCategories.forEach(category => categorySet.add(category));
+      }
+    });
+    return Array.from(categorySet).sort();
+  }, []);
+
+  // Extract unique ministries for filter
+  const ministries = useMemo(() => {
+    const ministrySet = new Set(governmentSchemes.map(scheme => scheme.ministry));
+    return Array.from(ministrySet).sort();
+  }, []);
+
+  // Reset filters when tab changes
+  useEffect(() => {
+    setSearchQuery('');
+    setSelectedMinistry('all');
+    setSelectedCategory('all');
+  }, [selectedTab]);
+
   return (
     <DashboardLayout>
       <div className="space-y-8">
@@ -193,7 +222,7 @@ const GovernmentSchemes = () => {
           </p>
         </div>
         
-        <Tabs defaultValue="eligible" className="w-full">
+        <Tabs defaultValue="eligible" className="w-full" onValueChange={(value) => setSelectedTab(value as 'eligible' | 'all')}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <TabsList className="mb-0">
               <TabsTrigger value="eligible">Eligible Schemes</TabsTrigger>
@@ -232,11 +261,11 @@ const GovernmentSchemes = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="General">General</SelectItem>
-                  <SelectItem value="OBC">OBC</SelectItem>
-                  <SelectItem value="SC">SC</SelectItem>
-                  <SelectItem value="ST">ST</SelectItem>
-                  <SelectItem value="EWS">EWS</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -245,8 +274,8 @@ const GovernmentSchemes = () => {
           <TabsContent value="eligible" className="m-0">
             {profile ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {eligibleSchemes.length > 0 ? (
-                  eligibleSchemes.map((scheme) => (
+                {filteredSchemes.length > 0 ? (
+                  filteredSchemes.map((scheme) => (
                     <SchemeCard key={scheme.id} scheme={scheme} />
                   ))
                 ) : (
