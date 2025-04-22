@@ -12,6 +12,7 @@ export type GreenInvestment = {
   };
   investmentPeriod: string;
   sectorFocus: string[];
+  url?: string;
 };
 
 export const greenInvestments: GreenInvestment[] = [
@@ -28,7 +29,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Climate Action", "Responsible Consumption", "Clean Energy"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Renewable Energy", "Green Technology", "Sustainable Manufacturing"]
+    sectorFocus: ["Renewable Energy", "Green Technology", "Sustainable Manufacturing"],
+    url: "https://www.sbimf.com"
   },
   {
     id: "axis-esg-fund",
@@ -43,7 +45,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Sustainable Cities", "Responsible Consumption", "Industry Innovation"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Clean Energy", "Green Infrastructure", "Sustainable Consumer Goods"]
+    sectorFocus: ["Clean Energy", "Green Infrastructure", "Sustainable Consumer Goods"],
+    url: "https://www.axismf.com"
   },
   {
     id: "green-masala-bonds",
@@ -58,7 +61,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Affordable and Clean Energy", "Climate Action"]
     },
     investmentPeriod: "3-5 years",
-    sectorFocus: ["Solar Energy", "Wind Energy", "Hydro Power", "Biomass"]
+    sectorFocus: ["Solar Energy", "Wind Energy", "Hydro Power", "Biomass"],
+    url: "https://www.ireda.in"
   },
   {
     id: "ntpc-green-bonds",
@@ -73,7 +77,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Climate Action", "Industry Innovation"]
     },
     investmentPeriod: "5-7 years",
-    sectorFocus: ["Solar Energy", "Wind Energy"]
+    sectorFocus: ["Solar Energy", "Wind Energy"],
+    url: "https://www.ntpc.co.in"
   },
   {
     id: "tata-power-equity",
@@ -88,7 +93,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Affordable and Clean Energy", "Sustainable Cities"]
     },
     investmentPeriod: "7+ years",
-    sectorFocus: ["Renewable Energy", "Power Distribution", "Solar Manufacturing"]
+    sectorFocus: ["Renewable Energy", "Power Distribution", "Solar Manufacturing"],
+    url: "https://www.tatapower.com"
   },
   {
     id: "scatec-insolation-india",
@@ -103,7 +109,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Climate Action", "Affordable and Clean Energy"]
     },
     investmentPeriod: "10-15 years",
-    sectorFocus: ["Solar Energy"]
+    sectorFocus: ["Solar Energy"],
+    url: "https://scatec.com/projects/india"
   },
   {
     id: "suzlon-energy-equity",
@@ -118,7 +125,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Climate Action", "Innovation"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Wind Energy", "Renewable Technology"]
+    sectorFocus: ["Wind Energy", "Renewable Technology"],
+    url: "https://www.suzlon.com"
   },
   {
     id: "greenko-energy-bonds",
@@ -133,7 +141,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Climate Action", "Innovation"]
     },
     investmentPeriod: "5-7 years",
-    sectorFocus: ["Solar Energy", "Wind Energy", "Hydro Power", "Energy Storage"]
+    sectorFocus: ["Solar Energy", "Wind Energy", "Hydro Power", "Energy Storage"],
+    url: "https://www.greenkogroup.com"
   },
   {
     id: "mirae-esg-sector-fund",
@@ -148,7 +157,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Responsible Consumption", "Climate Action", "Sustainable Communities"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Clean Energy", "Sustainable Technology", "Green Manufacturing"]
+    sectorFocus: ["Clean Energy", "Sustainable Technology", "Green Manufacturing"],
+    url: "https://www.miraeassetmf.co.in"
   },
   {
     id: "hero-future-energies",
@@ -163,7 +173,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Affordable and Clean Energy", "Climate Action"]
     },
     investmentPeriod: "7-10 years",
-    sectorFocus: ["Solar Energy", "Wind Energy"]
+    sectorFocus: ["Solar Energy", "Wind Energy"],
+    url: "https://www.herofutureenergies.com/investors"
   },
   {
     id: "green-growth-equity-fund",
@@ -178,7 +189,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Sustainable Cities", "Climate Action", "Industry Innovation"]
     },
     investmentPeriod: "7-10 years",
-    sectorFocus: ["Renewable Energy", "Waste Management", "Clean Transportation", "Water"]
+    sectorFocus: ["Renewable Energy", "Waste Management", "Clean Transportation", "Water"],
+    url: "https://www.eversourcecapital.com/ggef"
   },
   {
     id: "quant-esg-equity-fund",
@@ -193,7 +205,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Responsible Consumption", "Climate Action", "Industry Innovation"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Renewable Energy", "Sustainable Manufacturing", "Green Technology"]
+    sectorFocus: ["Renewable Energy", "Sustainable Manufacturing", "Green Technology"],
+    url: "https://www.quantmutual.com"
   },
   {
     id: "azure-power-global",
@@ -208,7 +221,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Climate Action"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Solar Energy"]
+    sectorFocus: ["Solar Energy"],
+    url: "https://www.azurepower.com"
   },
   {
     id: "green-highways-infra-bond",
@@ -223,7 +237,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Sustainable Infrastructure", "Climate Action"]
     },
     investmentPeriod: "5-7 years",
-    sectorFocus: ["Green Infrastructure", "Transportation"]
+    sectorFocus: ["Green Infrastructure", "Transportation"],
+    url: "https://www.nhai.gov.in/green-highways"
   },
   {
     id: "avaada-energy-project",
@@ -238,7 +253,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Affordable and Clean Energy", "Climate Action"]
     },
     investmentPeriod: "10-15 years",
-    sectorFocus: ["Solar Energy"]
+    sectorFocus: ["Solar Energy"],
+    url: "https://www.avaada.com/investors"
   },
   {
     id: "hdfc-clean-energy-fund",
@@ -253,7 +269,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Industry Innovation", "Climate Action"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Renewable Energy", "Clean Technology", "Energy Storage"]
+    sectorFocus: ["Renewable Energy", "Clean Technology", "Energy Storage"],
+    url: "https://www.hdfcfund.com"
   },
   {
     id: "sterling-green-bond",
@@ -268,7 +285,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Climate Action"]
     },
     investmentPeriod: "3-5 years",
-    sectorFocus: ["Solar Energy"]
+    sectorFocus: ["Solar Energy"],
+    url: "https://www.sterlingandwilson.com"
   },
   {
     id: "renew-power-ventures",
@@ -283,52 +301,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Affordable and Clean Energy", "Climate Action", "Industry Innovation"]
     },
     investmentPeriod: "7-10 years",
-    sectorFocus: ["Solar Energy", "Wind Energy"]
-  },
-  {
-    id: "waste-mgmt-fund",
-    name: "Waste Management & Recycling Fund",
-    type: "Infrastructure",
-    description: "A specialized fund investing in waste management, recycling, and circular economy projects across urban India. The fund aims to address India's growing waste challenges while generating financial returns.",
-    expectedReturns: "13-16% (IRR)",
-    minimumInvestment: 100000,
-    riskLevel: "High",
-    sustainability: {
-      environmentalImpact: "Reduces landfill waste and promotes circular economy",
-      sdgGoals: ["Sustainable Cities", "Responsible Consumption", "Climate Action"]
-    },
-    investmentPeriod: "5-7 years",
-    sectorFocus: ["Waste Management", "Recycling", "Circular Economy"]
-  },
-  {
-    id: "electric-mobility-bond",
-    name: "Electric Mobility Green Bonds",
-    type: "Bond",
-    description: "Bonds issued to finance electric vehicle charging infrastructure and related technologies across major Indian cities, supporting the transition to clean transportation.",
-    expectedReturns: "7.5-8.5% (Annual)",
-    minimumInvestment: 10000,
-    riskLevel: "Medium",
-    sustainability: {
-      environmentalImpact: "Enables transition from fossil fuel vehicles to electric mobility",
-      sdgGoals: ["Sustainable Cities", "Climate Action", "Clean Energy"]
-    },
-    investmentPeriod: "5-7 years",
-    sectorFocus: ["Electric Vehicles", "Clean Transportation"]
-  },
-  {
-    id: "green-waste-management-bond",
-    name: "Municipal Green Waste Management Bond",
-    type: "Bond",
-    description: "Municipal bonds funding waste-to-energy projects and modern waste management facilities in major Indian cities. These projects aim to address urban waste challenges while generating clean energy.",
-    expectedReturns: "7.5-8.5% (Annual)",
-    minimumInvestment: 10000,
-    riskLevel: "Low",
-    sustainability: {
-      environmentalImpact: "Reduces landfill waste and generates clean energy from waste",
-      sdgGoals: ["Sustainable Cities", "Responsible Consumption", "Clean Energy"]
-    },
-    investmentPeriod: "5-7 years",
-    sectorFocus: ["Waste Management", "Waste-to-Energy", "Urban Infrastructure"]
+    sectorFocus: ["Solar Energy", "Wind Energy"],
+    url: "https://www.renewpower.in"
   },
   {
     id: "ev-infrastructure-fund",
@@ -343,7 +317,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Sustainable Cities", "Climate Action", "Innovation"]
     },
     investmentPeriod: "7-10 years",
-    sectorFocus: ["Electric Vehicles", "Charging Infrastructure", "Green Transportation"]
+    sectorFocus: ["Electric Vehicles", "Charging Infrastructure", "Green Transportation"],
+    url: "https://www.fastcharge.in"
   },
   {
     id: "green-building-reit",
@@ -358,7 +333,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Sustainable Cities", "Climate Action", "Responsible Consumption"]
     },
     investmentPeriod: "3-5 years",
-    sectorFocus: ["Green Buildings", "Sustainable Real Estate", "Energy Efficiency"]
+    sectorFocus: ["Green Buildings", "Sustainable Real Estate", "Energy Efficiency"],
+    url: "https://www.embassyofficeparks.com"
   },
   {
     id: "water-conservation-project",
@@ -373,7 +349,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Water", "Sustainable Cities", "Climate Action"]
     },
     investmentPeriod: "5-7 years",
-    sectorFocus: ["Water Management", "Smart Infrastructure", "Conservation Technology"]
+    sectorFocus: ["Water Management", "Smart Infrastructure", "Conservation Technology"],
+    url: "https://www.ministryofwater.in"
   },
   {
     id: "agritech-sustainability-fund",
@@ -388,7 +365,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Zero Hunger", "Climate Action", "Responsible Production"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Agricultural Technology", "Sustainable Farming", "Food Security"]
+    sectorFocus: ["Agricultural Technology", "Sustainable Farming", "Food Security"],
+    url: "https://www.agritechfund.in"
   },
   {
     id: "green-hydrogen-equity",
@@ -403,7 +381,8 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Clean Energy", "Industry Innovation", "Climate Action"]
     },
     investmentPeriod: "7+ years",
-    sectorFocus: ["Green Hydrogen", "Clean Energy", "Industrial Decarbonization"]
+    sectorFocus: ["Green Hydrogen", "Clean Energy", "Industrial Decarbonization"],
+    url: "https://www.greenhydrogenindia.com"
   },
   {
     id: "circular-economy-fund",
@@ -418,6 +397,55 @@ export const greenInvestments: GreenInvestment[] = [
       sdgGoals: ["Responsible Consumption", "Sustainable Production", "Climate Action"]
     },
     investmentPeriod: "5+ years",
-    sectorFocus: ["Circular Economy", "Recycling Technology", "Sustainable Manufacturing"]
+    sectorFocus: ["Circular Economy", "Recycling Technology", "Sustainable Manufacturing"],
+    url: "https://www.circulareconomyfund.in"
+  },
+  {
+    id: "adani-green-energy",
+    name: "Adani Green Energy Limited",
+    type: "Equity",
+    description: "One of India's largest renewable energy companies, focusing on solar and wind power generation. The company aims to achieve 45 GW of renewable energy capacity by 2030.",
+    expectedReturns: "Market-linked (Potential for 15-20%)",
+    minimumInvestment: 5000,
+    riskLevel: "High",
+    sustainability: {
+      environmentalImpact: "Large-scale renewable energy generation and carbon emission reduction",
+      sdgGoals: ["Clean Energy", "Climate Action", "Industry Innovation"]
+    },
+    investmentPeriod: "5+ years",
+    sectorFocus: ["Solar Energy", "Wind Energy", "Renewable Power"],
+    url: "https://www.adanigreenenergy.com"
+  },
+  {
+    id: "icici-esg-fund",
+    name: "ICICI Prudential ESG Fund",
+    type: "Mutual Fund",
+    description: "An open-ended equity scheme investing in companies with strong ESG practices. The fund uses a proprietary ESG scoring system to select investments.",
+    expectedReturns: "11-14% (CAGR)",
+    minimumInvestment: 5000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Invests in companies with sustainable business practices and positive environmental impact",
+      sdgGoals: ["Responsible Consumption", "Climate Action", "Industry Innovation"]
+    },
+    investmentPeriod: "5+ years",
+    sectorFocus: ["Renewable Energy", "Sustainable Technology", "Green Manufacturing"],
+    url: "https://www.icicipruamc.com"
+  },
+  {
+    id: "kotak-esg-fund",
+    name: "Kotak ESG Opportunities Fund",
+    type: "Mutual Fund",
+    description: "An actively managed fund investing in companies with strong ESG practices and sustainable business models. Uses a comprehensive ESG scoring system.",
+    expectedReturns: "11-14% (CAGR)",
+    minimumInvestment: 5000,
+    riskLevel: "Medium",
+    sustainability: {
+      environmentalImpact: "Invests in companies with positive environmental impact and sustainable practices",
+      sdgGoals: ["Responsible Consumption", "Climate Action", "Industry Innovation"]
+    },
+    investmentPeriod: "5+ years",
+    sectorFocus: ["Renewable Energy", "Sustainable Technology", "Green Manufacturing"],
+    url: "https://www.kotakmf.com"
   }
 ];

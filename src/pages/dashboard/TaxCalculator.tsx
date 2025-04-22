@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -47,7 +46,8 @@ const IndividualTaxCalculator = () => {
     const grossIncome = salary + otherIncome;
     
     if (taxRegime === 'new') {
-      return grossIncome;
+      // Apply standard deduction of ₹50,000 for new regime
+      return Math.max(0, grossIncome - standardDeduction);
     } else {
       // Apply all deductions for old regime
       const totalDeductions = standardDeduction + 
@@ -67,7 +67,7 @@ const IndividualTaxCalculator = () => {
     let tax = 0;
     
     if (taxRegime === 'new') {
-      // New Regime Tax Slabs for FY 2023-24
+      // New Regime Tax Slabs for FY 2023-24 (A.Y. 2024-25)
       if (taxableIncome <= 300000) {
         tax = 0;
       } else if (taxableIncome <= 600000) {
@@ -82,7 +82,7 @@ const IndividualTaxCalculator = () => {
         tax = 150000 + (taxableIncome - 1500000) * 0.3;
       }
     } else {
-      // Old Regime Tax Slabs for FY 2023-24
+      // Old Regime Tax Slabs for FY 2023-24 (A.Y. 2024-25)
       if (taxableIncome <= 250000) {
         tax = 0;
       } else if (taxableIncome <= 500000) {
@@ -101,17 +101,22 @@ const IndividualTaxCalculator = () => {
       tax = 0;
     }
     
-    // Calculate cess and surcharge
-    const cess = tax * 0.04; // 4% Health and Education Cess
+    // Calculate cess (4% Health and Education Cess)
+    const cess = tax * 0.04;
     
-    // Basic surcharge rules (simplified)
+    // Calculate surcharge based on income
     let surcharge = 0;
     if (taxableIncome > 5000000 && taxableIncome <= 10000000) {
       surcharge = tax * 0.1;
-    } else if (taxableIncome > 10000000) {
+    } else if (taxableIncome > 10000000 && taxableIncome <= 20000000) {
       surcharge = tax * 0.15;
+    } else if (taxableIncome > 20000000 && taxableIncome <= 50000000) {
+      surcharge = tax * 0.25;
+    } else if (taxableIncome > 50000000) {
+      surcharge = tax * 0.37;
     }
     
+    // Calculate total tax including cess and surcharge
     const totalTax = tax + cess + surcharge;
     
     return {
@@ -381,17 +386,27 @@ const BusinessTaxCalculator = () => {
       tax = taxableIncome * taxRate;
     }
     
-    // Calculate cess
-    const cess = tax * 0.04; // 4% Health and Education Cess
+    // Calculate cess (4% Health and Education Cess)
+    const cess = tax * 0.04;
     
-    // Calculate surcharge (simplified)
+    // Calculate surcharge based on income and business type
     let surcharge = 0;
-    if (businessType === 'company-domestic' && taxableIncome > 10000000) {
-      surcharge = tax * 0.07; // 7% for domestic companies
-    } else if (taxableIncome > 5000000 && taxableIncome <= 10000000) {
-      surcharge = tax * 0.1;
-    } else if (taxableIncome > 10000000) {
-      surcharge = tax * 0.15;
+    if (businessType === 'company-domestic') {
+      if (taxableIncome > 10000000 && taxableIncome <= 100000000) {
+        surcharge = tax * 0.07;
+      } else if (taxableIncome > 100000000) {
+        surcharge = tax * 0.12;
+      }
+    } else {
+      if (taxableIncome > 5000000 && taxableIncome <= 10000000) {
+        surcharge = tax * 0.1;
+      } else if (taxableIncome > 10000000 && taxableIncome <= 20000000) {
+        surcharge = tax * 0.15;
+      } else if (taxableIncome > 20000000 && taxableIncome <= 50000000) {
+        surcharge = tax * 0.25;
+      } else if (taxableIncome > 50000000) {
+        surcharge = tax * 0.37;
+      }
     }
     
     const totalTax = tax + cess + surcharge;

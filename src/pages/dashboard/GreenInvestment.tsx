@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -111,7 +110,12 @@ const InvestmentCard = ({ investment }: { investment: InvestmentType }) => {
           >
             {showDetails ? 'Show Less' : 'Show More'}
           </Button>
-          <Button className="w-full bg-secondary">Learn More</Button>
+          <Button 
+            className="w-full bg-secondary"
+            onClick={() => window.open(investment.url, '_blank')}
+          >
+            Learn More
+          </Button>
         </div>
       </CardFooter>
     </Card>
