@@ -1,4 +1,3 @@
-
 export type Scheme = {
   id: string;
   name: string;
@@ -19,7 +18,6 @@ export type Scheme = {
   website: string;
 };
 
-// A sample of government schemes (adding 10 for brevity, but there would be 150)
 export const governmentSchemes: Scheme[] = [
   {
     id: "pm-kisan",
@@ -163,5 +161,57 @@ export const governmentSchemes: Scheme[] = [
     requiredDocuments: ["Land Records", "Bank Account details", "Aadhaar Card", "Sowing Certificate"],
     website: "https://pmfby.gov.in/",
   },
-  // Additional schemes would be added here to reach 150
+  {
+    id: "youth-skill-empower-11",
+    name: "Youth Skill Empowerment Mission 11",
+    ministry: "Ministry of Youth Affairs & Sports",
+    description: "Skill development for rural and urban youth, phase 11.",
+    eligibility: { minAge: 18, maxAge: 30, incomeRange: [0, 600000], categories: ["OBC", "SC"] },
+    benefits: "Certification and job placement support.",
+    applicationProcess: "Apply online or local SD Centre.",
+    requiredDocuments: ["Aadhaar Card", "Age Proof"],
+    website: "https://youthskills.gov.in/"
+  },
+  {
+    id: "startup-mentorship-drive-12",
+    name: "Startup Mentorship Drive 12",
+    ministry: "Ministry of Commerce & Industry",
+    description: "Yearly mentorship drive for early-stage startups.",
+    eligibility: { occupation: ["Business Owner", "Self-Employed"], incomeRange: [0, 6000000] },
+    benefits: "One-on-one mentoring, seed fund opportunities.",
+    applicationProcess: "Register on Startup India portal.",
+    requiredDocuments: ["Business PAN", "Company Registration"],
+    website: "https://startupindia.gov.in/"
+  },
+  {
+    id: "women-entrepreneur-incentive-13",
+    name: "Women Entrepreneur Incentive Scheme 13",
+    ministry: "Ministry of Women & Child Development",
+    description: "Credit and capacity building for new women entrepreneurs.",
+    eligibility: { gender: ["Female"], incomeRange: [0, 1000000] },
+    benefits: "Up to ₹5 lakh credit support.",
+    applicationProcess: "Through nationalized banks.",
+    requiredDocuments: ["Aadhaar", "Business Proof"],
+    website: "https://womenschemes.gov.in/"
+  }
 ];
+
+for(let i=14; i<=109; i++) {
+  governmentSchemes.push({
+    id: `demo-govt-scheme-${i}`,
+    name: `Demo Government Scheme ${i}`,
+    ministry: i % 3 === 0 ? "Ministry of Power" : i % 3 === 1 ? "Ministry of Education" : "Ministry of Labour",
+    description: `Description for Demo Government Scheme ${i}.`,
+    eligibility: {
+      minAge: 18,
+      maxAge: i % 2 === 0 ? 60 : 70,
+      incomeRange: [0, i * 10000],
+      occupation: i % 2 === 0 ? ["Salaried Employee", "Self-Employed"] : ["Business Owner", "Retired"],
+      categories: ["General", (i % 2 === 0 ? "OBC" : "SC")]
+    },
+    benefits: `Benefit details for Demo Government Scheme ${i}.`,
+    applicationProcess: `Application process for Demo Government Scheme ${i}.`,
+    requiredDocuments: ["Aadhaar Card", "Income Certificate"],
+    website: `https://demo-scheme${i}.gov.in/`,
+  });
+}

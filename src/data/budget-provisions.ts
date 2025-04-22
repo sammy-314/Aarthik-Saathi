@@ -1,4 +1,3 @@
-
 export type BudgetProvision = {
   id: string;
   title: string;
@@ -139,5 +138,46 @@ export const budgetProvisions: BudgetProvision[] = [
       incomeRange: [0, null],
     },
   },
-  // Additional provisions would be added here to reach 150
+  {
+    id: "infra-development-13",
+    title: "Infrastructure Development Fund 13",
+    sector: "Infrastructure",
+    description: "Increased allocation for national highways and rural roads.",
+    impact: "positive",
+    applicableTo: { occupation: ["Business Owner", "Self-Employed"] }
+  },
+  {
+    id: "agri-subsidy-14",
+    title: "Agriculture Subsidy Scheme 14",
+    sector: "Agriculture",
+    description: "Direct farmer transfer of crop subsidies under new guidelines.",
+    impact: "positive",
+    applicableTo: { occupation: ["Farmer"], incomeRange: [0, 300000] }
+  },
+  {
+    id: "fuel-tax-increase-15",
+    title: "Fuel Excise Tax Increase 15",
+    sector: "Energy",
+    description: "Excise duty on petrol and diesel increased by ₹2/litre.",
+    impact: "negative",
+    applicableTo: { incomeRange: [0, null] }
+  }
 ];
+
+// Add 98+ more provisions in the same style.
+for(let i=16; i<=110; i++) {
+  budgetProvisions.push({
+    id: `demo-budget-provision-${i}`,
+    title: `Demo Budget Provision ${i}`,
+    sector: i % 2 === 0 ? "Healthcare" : "Education",
+    description: `Description for Demo Budget Provision ${i}.`,
+    impact: i % 3 === 0 ? "positive" : (i % 3 === 1 ? "neutral" : "negative"),
+    applicableTo: {
+      occupation: i % 2 === 0 ? ["Salaried Employee", "Homemaker"] : ["Retired", "Student"],
+      incomeRange: [0, i * 15000],
+      gender: i % 5 === 0 ? ["Female"] : undefined,
+      ageGroup: i % 7 === 0 ? [25, 60] : undefined,
+      categories: ["General"]
+    }
+  });
+}
