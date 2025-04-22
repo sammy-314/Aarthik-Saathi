@@ -128,8 +128,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               className="w-full flex items-center justify-center gap-2 text-primary-foreground hover:bg-primary-foreground/10"
               onClick={handleLogout}
             >
-              <LogOut className="w-4 h-4" />
-              <span>Log Out</span>
+              <LogOut className="w-4 text-black h-4" />
+              <span className='text-black'>Log Out</span>
             </Button>
           </div>
         </div>
